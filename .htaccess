@@ -1,0 +1,13 @@
+# 开启 rewrite 功能
+Options +FollowSymlinks
+RewriteEngine on
+
+# 重写规则
+# RewriteRule ^(.*)$ View/Admin/adminList.php [QSA,L]
+RewriteRule ^gestion  gestion.php [nc,qsa]
+RewriteRule ^admin/list  Controller/RestController.php?method=adminList [nc,qsa]
+RewriteRule ^site/list/([0-9]+)/$   RestController.php?view=single&id=$1 [nc,qsa]
+
+<Files *>
+Options -Indexes
+</Files>
